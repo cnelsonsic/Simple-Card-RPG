@@ -90,9 +90,25 @@
 	\end{tikzpicture}
 }
 
+\newcommand{\border}{
+	%%Border:
+	%%FIXME: Can't get line thickness thick enough, maybe use boxes instead.
+	%%TODO: Don't draw the border on the side with tabs.
+	\begin{tikzpicture}[remember picture, overlay]
+		\node [shift={(.1, .1)}]  at (current page.north west)
+		{%%
+			\begin{tikzpicture}[remember picture, overlay]
+				\draw[ultra thick] (0,0) -- (62mm, 0) -- (62mm, -87mm) -- (0,-88mm) -- (0,0);
+			\end{tikzpicture}
+		};
+	\end{tikzpicture}
+	}
+
 \pagestyle{empty}
 
 \begin{document}
+
+%%\border
 
 % if bottomtabs==True:
 	\bottomsidetabs
